@@ -41,12 +41,12 @@ def main():
     df_nifty50 = yf.download("^NSEI", start=start_date, end=end_date)
     df_niftybank = yf.download("^NSEBANK", start=start_date, end=end_date)
     df_niftyfin = yf.download("NIFTY_FIN_SERVICE.NS", start=start_date, end=end_date)
-    df_reliance = yf.download("RELIANCE.NS", start=start_date, end=end_date)
+    df_reliance = yf.download("^IXIC", start=start_date, end=end_date)
 
     print(f"\x1b[1;32mNifty 50\x1b[0m")
     print(f"\x1b[1;32mNifty Bank\x1b[0m")
     print(f"\x1b[1;32mNifty Financial Services\x1b[0m")
-    print(f"\x1b[1;32mReliance\x1b[0m\n")
+    print(f"\x1b[1;32mNasdaq\x1b[0m\n")
 
     print(f"\n\x1b[1;36mCleaning the Data\x1b[0m\n")
 
@@ -369,7 +369,7 @@ def main():
     print(
         f"\x1b[1;36mMean Squared Error (Nifty Financial Services): \x1b[1;32m{mse_niftyfin}\x1b[0m"
     )
-    print(f"\x1b[1;36mMean Squared Error (Reliance): \x1b[1;32m{mse_reliance}\x1b[0m\n")
+    print(f"\x1b[1;36mMean Squared Error (Nasdaq): \x1b[1;32m{mse_reliance}\x1b[0m\n")
 
     print(f"\n\x1b[1;36mSaving Models\x1b[0m\n")
 

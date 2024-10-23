@@ -6,8 +6,8 @@ import yfinance as yf
 
 app = Flask(__name__)
 
-symbol_list = ["Nifty 50", "Nifty Bank", "Nifty Financial Services", "Reliance"]
-dict_list = ["nifty50", "niftybank", "niftyfin", "reliance"]
+symbol_list = ["Nifty 50", "Nifty Bank", "Nifty Financial Services", "Nasdaq"]
+dict_list = ["nifty50", "niftybank", "niftyfin", "nasdaq"]
 n = len(dict_list)
 
 
@@ -195,7 +195,7 @@ def get_niftyfin_pred():
     return jsonify(chart_data)
 
 
-@app.route("/chart-data-reliance")
+@app.route("/chart-data-nasdaq")
 def get_reliance_chart_data():
     print(f"\x1b[1;36mGetting Dates\x1b[0m\n")
     end_date = datetime.now()
@@ -209,7 +209,7 @@ def get_reliance_chart_data():
         f'\x1b[1;36mEnd Date          \x1b[1;32m{end_date.strftime("%Y-%b-%d")}\x1b[0m\n'
     )
 
-    df_reliance = yf.download("RELIANCE.NS", start=start_date, end=end_date)
+    df_reliance = yf.download("^IXIC.NS", start=start_date, end=end_date)
     df_reliance = df_reliance.reset_index()
     df_reliance.columns = df_reliance.columns.get_level_values(0)
     df_reliance.drop(
@@ -224,7 +224,7 @@ def get_reliance_chart_data():
     return jsonify(chart_data)
 
 
-@app.route("/pred-reliance")
+@app.route("/pred-nasdaq")
 def get_reliance_pred():
     end_date = datetime.now()
     start_date = end_date - timedelta(500)
@@ -235,7 +235,7 @@ def get_reliance_pred():
         f'\x1b[1;36mEnd Date          \x1b[1;32m{end_date.strftime("%Y-%b-%d")}\x1b[0m\n'
     )
 
-    df_reliance = yf.download("RELIANCE.NS", start=start_date, end=end_date)
+    df_reliance = yf.download("^IXIC", start=start_date, end=end_date)
     df_reliance = df_reliance.reset_index()
     df_reliance.columns = df_reliance.columns.get_level_values(0)
 

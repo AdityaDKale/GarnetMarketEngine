@@ -54,7 +54,7 @@ def main():
     df_nifty50 = yf.download("^NSEI", start=start_date, end=end_date)
     df_niftybank = yf.download("^NSEBANK", start=start_date, end=end_date)
     df_niftyfin = yf.download("NIFTY_FIN_SERVICE.NS", start=start_date, end=end_date)
-    df_reliance = yf.download("RELIANCE.NS", start=start_date, end=end_date)
+    df_reliance = yf.download("^IXIC", start=start_date, end=end_date)
 
     print(f"\x1b[1;32mNifty 50\x1b[0m")
     print(f"\x1b[1;32mNifty Bank\x1b[0m")
